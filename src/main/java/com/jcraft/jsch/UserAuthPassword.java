@@ -105,6 +105,9 @@ class UserAuthPassword extends UserAuth{
 	  continue loop;
 	}
 	if(command==SSH_MSG_USERAUTH_PASSWD_CHANGEREQ){
+		 JSch.getLogger().isEnabled(Logger.INFO)){
+                JSch.getLogger().log(Logger.INFO, 
+                                     "Authentication password chnage request("+command+").");
 	  buf.getInt(); buf.getByte(); buf.getByte(); 
 	  byte[] instruction=buf.getString();
 	  byte[] tag=buf.getString();
